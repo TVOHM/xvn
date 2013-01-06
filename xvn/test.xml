@@ -1,39 +1,57 @@
+<?xml version="1.0"?>
 <game title="My Game" default_width="800" default_height="600" opening_screen="screen.png" default_text_color="white" default_text_size="20">
-  <intro1>
+	<if variable="cheese" is_equal_to="bark">
+		<debug index="1">FALSE: cheese (0) NOT is_equal_to  (bark)</debug>
+	</if>
+	<intro1>
+		
     This is text that will be printed to the screen. The name of this node must be unique.
     It will be printed exactly as shown.
     The child node contained in this node dictates the next node to go to.
     If the child node is empty, the game continues on without prompting and startings printing
-    <intro2/>
-  </intro1>
-  <intro2>
+    
+		<intro2 />
+	</intro1>
+	<intro2>
+		
     This text will be shown below intro1.
     If the child is not empty, the user is presented with a button that
     they must click. The screen is then cleared.
-    <intro3>
+    
+		<intro3>
       Click me to continue!
     </intro3>
-  </intro2>
-  <intro3 text_color="red" text_size="25">
+	</intro2>
+	<intro3 text_color="red" text_size="25" text_font="arial.ttf">
+		
     You can override the defined defaults on all text.
-    <intro4 text_color="blue" text_size="15">OK</intro4>
-  </intro3>
-  <intro4 character="images/char.png" background="images/bg.bmp">
+    
+		<intro4 text_color="blue" text_size="15" text_font="arial.ttf">OK</intro4>
+	</intro3>
+	<intro4 character="char.png" background="bg.png">
+		
     You can change the character and background images.
-    <intro5>OK</intro5>
-  </intro4>
-  <intro5>
+    
+		<intro5>OK</intro5>
+	</intro4>
+	<intro5>
+		
     You can give the user multiple choices by adding multiple children with text.
-    <intro6>Click me to continue!
-      <if variable="gold" is_less_than="sword_cost"/>
-      <set variable="sword" as="true"/>
-      <decrease variable="gold" by_variable="cost_of_sword"/>
-    </intro6>
-    <intro6>No, Click me to continue!</intro6>
-  </intro5>
-  <intro6>
+    
+		<intro6>Click me to continue!</intro6>
+		<intro6>No, Click me to continue!</intro6>
+	</intro5>
+	<intro6>
+		
     Or randomly select from a selection of empty nodes.
     The second option is twice as likely as the first.
     Chance defaults to 1 if it is not defined.
-  </intro6>
+    
+		<intro7 chance="1">
+			<if variable="gold" is_less_than="123" />
+			<set variable="gold" to="123" />
+		</intro7>
+		<intro7 chance="2" />
+	</intro6>
+	<__system__ />
 </game>
