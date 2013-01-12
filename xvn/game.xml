@@ -4,7 +4,9 @@
     It will be printed exactly as shown.
     The child node contained in this node dictates the next node to go to.
     If the child node is empty, the game continues on without prompting and startings printing
-    <intro2/>
+    <set variable="cheese" to="123"/>
+    <if variable="cheese" is_equal_to="123"/>
+    <intro2 chance="2"/>
   </intro1>
   <intro2>
     This text will be shown below intro1.

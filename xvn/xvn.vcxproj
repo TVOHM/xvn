@@ -57,12 +57,16 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>zlib-d.lib;libpng15-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Xdcmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -74,6 +78,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -84,9 +89,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="action.cpp" />
+    <ClCompile Include="condition.cpp" />
+    <ClCompile Include="control.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="pugixml.cpp" />
+    <ClCompile Include="text.cpp" />
+    <ClCompile Include="xvnutil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="game.xml">
@@ -94,14 +103,18 @@
     </Xml>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="action.h" />
     <ClInclude Include="CImg.h" />
-    <ClInclude Include="Engine.h" />
+    <ClInclude Include="condition.h" />
+    <ClInclude Include="control.h" />
     <ClInclude Include="pugiconfig.hpp" />
     <ClInclude Include="pugixml.hpp" />
+    <ClInclude Include="text.h" />
+    <ClInclude Include="xvnutil.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="LICENSE.TXT" />
-    <Text Include="README.TXT" />
+    <Text Include="..\LICENSE.TXT" />
+    <Text Include="..\README.TXT" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
